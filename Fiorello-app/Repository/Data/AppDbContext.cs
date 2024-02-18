@@ -2,12 +2,8 @@
 using Domain.Models;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace Repository.Data
 {
@@ -15,14 +11,17 @@ namespace Repository.Data
     {
         public AppDbContext(DbContextOptions<AppDbContext> options) : base(options) { }
 
+
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
 
-
             modelBuilder.ApplyConfiguration(new SliderConfiguration());
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Slider>().HasQueryFilter(m => !m.SoftDelete);
 
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-            base.OnModelCreating(modelBuilder);
+
 
         }
     }
