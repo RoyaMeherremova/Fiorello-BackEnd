@@ -9,7 +9,7 @@ namespace Domain.Models
 {
     public class Say : BaseEntity
     {
-        public string? Image { get; set; }
+        public byte[]? Image { get; set; }
 
         public string? Title { get; set; }
 

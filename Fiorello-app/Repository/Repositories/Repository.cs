@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repository.Data;
 using Repository.Repositories.Interfaces;
-
+using System.Linq.Expressions;
 
 namespace Repository.Repositories
 {
@@ -13,6 +13,7 @@ namespace Repository.Repositories
 
         public Repository(AppDbContext context)
         {
+            _context = context;
             entities = _context.Set<T>();    
         }
         public async Task CreateAsync(T entity)
@@ -51,6 +52,10 @@ namespace Repository.Repositories
         public Task UpdateAsync(T entity)
         {
             throw new NotImplementedException();
+        }
+        public async Task<IEnumerable<T>> FindAllAsync(Expression<Func<T, bool>> expression = null)
+        {
+            return expression != null ? await entities.Where(expression).ToListAsync() : await entities.ToListAsync();
         }
     }
 }

@@ -2397,8 +2397,10 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
           "Domain": "1.0.0",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.16",
+          "Microsoft.EntityFrameworkCore": "6.0.16",
           "Microsoft.EntityFrameworkCore.SqlServer": "6.0.16"
         },
         "compile": {
@@ -2406,6 +2408,23 @@
         },
         "runtime": {
           "bin/placeholder/Repository.dll": {}
+        }
+      },
+      "Service/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v6.0",
+        "dependencies": {
+          "AutoMapper": "12.0.1",
+          "AutoMapper.Extensions.Microsoft.DependencyInjection": "12.0.1",
+          "Microsoft.AspNetCore.Http": "2.2.2",
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
+          "Repository": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Service.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Service.dll": {}
         }
       }
     }
@@ -7289,6 +7308,11 @@
       "type": "project",
       "path": "../Repository/Repository.csproj",
       "msbuildProject": "../Repository/Repository.csproj"
+    },
+    "Service/1.0.0": {
+      "type": "project",
+      "path": "../Service/Service.csproj",
+      "msbuildProject": "../Service/Service.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -7304,6 +7328,7 @@
       "Microsoft.EntityFrameworkCore.SqlServer.Design >= 1.1.6",
       "Microsoft.EntityFrameworkCore.Tools >= 6.0.16",
       "Repository >= 1.0.0",
+      "Service >= 1.0.0",
       "Swashbuckle.AspNetCore >= 6.2.3"
     ]
   },
@@ -7341,6 +7366,9 @@
           "projectReferences": {
             "C:\\Users\\lenovo\\Desktop\\Fiorello-Backend\\Fiorello-app\\Repository\\Repository.csproj": {
               "projectPath": "C:\\Users\\lenovo\\Desktop\\Fiorello-Backend\\Fiorello-app\\Repository\\Repository.csproj"
+            },
+            "C:\\Users\\lenovo\\Desktop\\Fiorello-Backend\\Fiorello-app\\Service\\Service.csproj": {
+              "projectPath": "C:\\Users\\lenovo\\Desktop\\Fiorello-Backend\\Fiorello-app\\Service\\Service.csproj"
             }
           }
         }
